@@ -31,14 +31,46 @@
 	    <version>2.0.0</version>
 	</dependency>
 	
+	<dependency>
+		<groupId>com.autentia.cursos</groupId>
+		<artifactId>maven-plugin</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<type>maven-plugin</type>
+	</dependency>
+	
   </dependencies>
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>2.19.1</version>
-      </plugin>
-    </plugins>
-  </reporting>
+  
+  <build>
+  	<pluginManagement>
+	    <plugins>
+		      <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-surefire-report-plugin</artifactId>
+		        <version>2.19.1</version>
+		      </plugin>
+		      
+		      <plugin>
+					<groupId>com.autentia.cursos</groupId>
+					<artifactId>maven-plugin</artifactId>
+					<version>1.0-SNAPSHOT</version>
+					<executions>
+					<execution>
+					<phase>compile</phase>
+					<goals>
+					<goal>touch</goal>
+					</goals>
+					</execution>
+					</executions>
+			   </plugin>
+	    </plugins>
+    </pluginManagement>
+  </build>
+  
+  <distributionManagement>
+    <repository>
+      <id>MVN_rep</id>
+      <name>Repositorio maven</name>
+      <url> file:\\C:\Users\rafae\Desktop\US\Curso 16-17\EGC\repo_maven\proy1\deployment </url>
+    </repository>
+</distributionManagement>
 </project>
